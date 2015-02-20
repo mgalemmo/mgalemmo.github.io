@@ -1,10 +1,10 @@
 body{
 	font-family: 'Pacifico', cursive;
-	font-family: 'Oldenburg', cursive;
+	font-family: 'Alegreya Sans', sans-serif;
 	font-family: 'Quicksand', sans-serif;
 	background: #de6868;
-	padding: 0;
-	margin: 0; 
+	padding: 0px;
+	margin: 0px; 
 	width: 100%;
 	height: 100%;
 	/* position: relative; */
@@ -99,12 +99,13 @@ body{
 		}
 #box-one{
 	background-color: #78e2d7;
+	text-align: center;
 }
 	.section-title{
 		text-align: center;
 		font-family: 'Quicksand';
 		font-size: 300%;
-		padding-top: 70px;
+		padding-top: 2%;
 		color: white;
 	}
 	.section-images{
@@ -129,19 +130,20 @@ body{
 			height: 275px;
 			width: 275px;
 			margin: 25px;
-			font-family: 'Oldenburg';
+			font-family: 'Alegreya Sans';
 			color: white;
 			text-align: left;
 			
 		}
 #box-two{
-
+	text-align: center;
 }
 	#section-title-two{
 		color:black
 	}
 #box-three{
 	background: #999a95;/* #ffb366   379100*/
+	text-align: center;
 }
 #box-four{
 	background-color: #578c00;
@@ -162,8 +164,9 @@ body{
 		color: white;
 	}
 	#about-me-info{
-		font-family: 'Oldenburg';
-		font-size: 150%;
+		/*font-family: 'Alegreya Sans';*/
+		font-family: 'Quicksand';
+		font-size: 230%;
 		width: 700px;
 		float: left;
 		margin-top: 50px;
@@ -174,15 +177,113 @@ body{
 	height: 100px;
 }
 	#icons{
-		margin-left: 530px;
+		text-align: center;
+		padding: 0px;
+		margin: 0px;
+		
 	}
 		.icon{
 			display: inline-block;
 			width: 5%;
-			margin-bottom: 0px;
-			padding:10px; 
-			padding-top: 30px;
+			padding-left:1%; 
+			padding-top: 1%;
 		}
+			
+
+		#galBloc{
+					padding-top: .5%;
+					padding-bottom: 3%;
+				}
+				#gallery{
+				    /* CSS3 Box Shadow */
+				    -moz-box-shadow:0 0 3px #AAAAAA;
+				    -webkit-box-shadow:0 0 3px #AAAAAA;
+				    box-shadow:0 0 3px #AAAAAA;
+
+				    /* CSS3 Rounded Corners */
+
+				    -moz-border-radius:8px;
+				    -webkit-border-radius:8px;
+				    border-radius:8px;
+
+				    border:1px solid white;
+
+				    background: #ffffff;
+
+				    /* The width of the gallery */
+				    width:920px;
+				    height: 420px;
+				    overflow:hidden;
+				    display: inline-block;
+				}
+				#slides{
+				    /* This is the slide area */
+				    height:400px;
+
+				    /* jQuery changes the width later on to the sum of the widths of all the slides. */
+				    width:920px;
+				    overflow:hidden;
+				}
+
+				.slide{
+				    float:left;
+				}
+
+				#galmenu{
+				    /* This is the container for the thumbnails */
+				    height:45px;
+				    margin:0px;
+				    padding:0px;
+				}
+
+				ul{
+				    margin:0px;
+				    padding:0px;
+				}
+
+				li{
+				    /* Every thumbnail is a li element */
+				    width:60px;
+				    display:inline-block;
+				    list-style:none;
+				    height:15px;
+				    overflow:hidden;
+				}
+
+				li.inact:hover{
+				    /* The inactive state, highlighted on mouse over */
+				    background:url(img/pic_bg.png) repeat;
+				}
+
+				li.act,li.act:hover{
+				    /* The active state of the thumb */
+				    background:url(img/active_bg.png) no-repeat;
+				}
+
+				li.act a{
+				    cursor:default;
+				}
+
+				.fbar{
+				    /* The left-most vertical bar, next to the first thumbnail */
+				    width:2px;
+				    background:pink;
+				}
+				.menuItem{
+					padding: 2px;
+				}
+
+				li a{
+				    display:block;
+				    background:url(img/divider.png) no-repeat right;
+				    height:35px;
+				    padding-top:10px;
+				}
+
+				a img{
+				    border:none;
+				}
+
 #end-box{
 	height: 100px;
 			/* Note: This gradient may render differently in browsers that don't support the unprefixed gradient syntax */
@@ -207,7 +308,7 @@ body{
 }
 	#cc{
 			text-align: center;
-			font-family: 'Oldenburg';
+			font-family: 'Alegreya Sans';
 			font-size: 100%;
 			color: white;
 			padding:30px;
