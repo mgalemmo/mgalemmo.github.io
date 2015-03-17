@@ -1,0 +1,22 @@
+
+{
+  "nodes": [
+    {"atom": "Data Reduction and Event Generation", "size": 35},
+    {"atom": "Data Store (ASbase)", "size": 32},
+    {"atom": "Predictive Analytics", "size": 12},
+    {"atom": "Decision Making", "size": 12},
+    {"atom": "Dashboard", "size": 12},
+    {"atom": "Adapter 1", "size": 12},
+    {"atom": "Adapter 2", "size": 12}
+  ],
+  "links": [
+    {"source": 0, "target": 5,  "bond": 1},
+    {"source": 0, "target": 6,  "bond": 1},
+    {"source": 1, "target": 0,  "bond": 1},
+    {"source": 1, "target": 2,  "bond": 1},
+    {"source": 1, "target": 4,  "bond": 1},
+    {"source": 4, "target": 2,  "bond": 1},
+    {"source": 2, "target": 3, "bond": 1},
+    {"source": 2, "target": 3, "bond": 1}
+  ]
+}
