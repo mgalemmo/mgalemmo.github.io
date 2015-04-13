@@ -76,6 +76,26 @@ d3.json("graph.json", function(graph) {
       .attr("text-anchor", "middle")
       .text(function(d) { return d.atom; });
 
+  svg.append("svg:defs").selectAll("marker")
+      .data(force.links())
+    .enter().append("svg:marker")
+      .attr("id", function(link, idx){ return 'marker-' + idx})
+      .attr("viewBox", "0 -5 10 10")
+      .attr("refX", function(link, idx){
+        return  10 + link.target.size;
+      })
+      .attr("refY", 0)
+      .attr("markerWidth", 6)
+      .attr("markerHeight", 6)
+      .attr("orient", "auto")
+    .append("svg:path")
+      .attr("d", "M0,-5L10,0L0,5")
+      .attr("fill", function(link){
+        if(link.type == 'in')
+          return "green";
+        return "blue";
+      });
+
   function tick() {
     link.selectAll("line")
         .attr("x1", function(d) { return d.source.x; })
