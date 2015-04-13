@@ -76,25 +76,27 @@ d3.json("graph.json", function(graph) {
       .attr("text-anchor", "middle")
       .text(function(d) { return d.atom; });
 
-  svg.append("svg:defs").selectAll("marker")
-      .data(force.links())
-    .enter().append("svg:marker")
-      .attr("id", function(link, idx){ return 'marker-' + idx})
-      .attr("viewBox", "0 -5 10 10")
-      .attr("refX", function(link, idx){
-        return  10 + link.target.size;
-      })
-      .attr("refY", 0)
-      .attr("markerWidth", 6)
-      .attr("markerHeight", 6)
-      .attr("orient", "auto")
-    .append("svg:path")
-      .attr("d", "M0,-5L10,0L0,5")
-      .attr("fill", function(link){
-        if(link.type == 'in')
-          return "green";
-        return "blue";
-      });
+
+  link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { 
+             return getTargetNodeCircumferencePoint(d)[0];
+        })
+        .attr("y2", function(d) { 
+             return getTargetNodeCircumferencePoint(d)[1];
+        });
+
+  function getTargetNodeCircumferencePoint(d){
+
+        var t_radius = d.target.nodeWidth/2; // nodeWidth is just a custom attribute I calculate during the creation of the nodes depending on the node width
+        var dx = d.target.x - d.source.x;
+        var dy = d.target.y - d.source.y;
+        var gamma = Math.atan2(dy,dx); // Math.atan2 returns the angle in the correct quadrant as opposed to Math.atan
+        var tx = d.target.x - (Math.cos(gamma) * t_radius);
+        var ty = d.target.y - (Math.sin(gamma) * t_radius);
+
+        return [tx,ty]; 
+}
 
   function tick() {
     link.selectAll("line")
