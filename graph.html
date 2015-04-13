@@ -41,26 +41,14 @@ var svg = d3.select("body").append("svg")
 var force = d3.layout.force()
     .size([width, height])
     .charge(-2000)
-    .linkDistance(function(d) { return radius(d.source.size) + radius(d.target.size) + 50; })
-    .on("tick", tick)
-    .start();
+    .linkDistance(function(d) { return radius(d.source.size) + radius(d.target.size) + 50; });
 
 d3.json("graph.json", function(graph) {
   force
       .nodes(graph.nodes)
       .links(graph.links)
-      // .on("tick", tick)
-      // .start();
-    var nodes = {};
-
-    // // Compute the distinct nodes from the links.
-    // links.forEach(function(link) {
-    //     link.source = nodes[link.source] || 
-    //         (nodes[link.source] = {name: link.source});
-    //     link.target = nodes[link.target] || 
-    //         (nodes[link.target] = {name: link.target});
-    //     link.value = +link.value;
-    // });
+      .on("tick", tick)
+      .start();
 
   var link = svg.selectAll(".link")
       .data(graph.links)
@@ -87,30 +75,6 @@ d3.json("graph.json", function(graph) {
       .attr("dy", ".35em")
       .attr("text-anchor", "middle")
       .text(function(d) { return d.atom; });
-
-  //   // build the arrow.
-  // svg.append("svg:defs").selectAll("marker")
-  //     .data(["end"])     
-  //      // Different link/path types can be defined here
-  //   .enter().append("svg:marker")    // This section adds in the arrows
-  //     .attr("id", String)
-  //     .attr("viewBox", "0 -5 10 10")
-  //     .attr("refX", 15)
-  //     .attr("refY", -1.5)
-  //     .attr("markerWidth", 6)
-  //     .attr("markerHeight", 6)
-  //     .attr("orient", "auto")
-  //   .append("svg:path")
-  //     .attr("d", "M0,-5L10,0L0,5");
-
-  // // add the links and the arrows
-  // var path = svg.append("svg:g").selectAll("path")
-  //     .data(force.links())
-  //   .enter().append("svg:path")
-  // //    .attr("class", function(d) { return "link " + d.type; })
-  //     .attr("class", "link")
-  //     .attr("marker-end", "url(#end)");
-
 
   function tick() {
     link.selectAll("line")
