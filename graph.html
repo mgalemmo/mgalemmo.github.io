@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<script src="http://d3js.org/d3.v2.min.js?2.9.6"></script>
+<style>
+
+div.tooltip { 
+    position: absolute;     
+    text-align: center;     
+    width: 190px;          
+    height: 150px;         
+    padding: 2px;       
+    font: 12px sans-serif;    
+    background: pink; 
+    border: 0px;    
+    border-radius: 8px;     
+    pointer-events: none;     
+}
+
+.link line {
+  stroke: #696969;
+}
+
+.link line.separator {
+  stroke: #fff;
+  stroke-width: 2px;
+}
+
+.node circle {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+
+.node text {
+  font: 14px sans-serif;
+  pointer-events: none;
+}
+
+</style>
+<body>
+<script>
+
+var width = 1400,
+    height = 1300;
+
+var margin = {top: 30, right: 20, bottom: 30, left: 50}
+
+var color = d3.scale.category20();
+
+var radius = d3.scale.sqrt()
+    .range([0, 20]);
+
+var force = d3.layout.force()
+    .size([width, height])
+    .charge(-10000)
+    .linkDistance(function(d) { return radius(d.source.size) + radius(d.target.size) + 100; });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    .append("g")
+        .attr("transform", 
+              "translate(" + margin.left + "," + margin.top + ")");
+
+var div = d3.select("body").append("div") 
+    .attr("class", "tooltip")       
+    .style("opacity", 0);
+
+
+d3.json("graph.json", function(graph) {
+ force
+    .nodes(graph.nodes)
+    .links(graph.links)
+    .on("tick", tick)
+    .start();
+
+svg.append("defs").selectAll("marker")
+    .data(["suit", "licensing", "resolved"])
+  .enter().append("marker")
+    .attr("id", function(d) { return d; })
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 35)
+    .attr("refY", 0)
+    .attr("markerWidth", 10)
+    .attr("markerHeight", 10)
+    .attr("orient", "auto")
+  .append("path")
+    .attr("d", "M0,-5L10,0L0,5 L10,0 L0, -5")
+    .style("stroke", "#4679BD")
+    .style("opacity", "0.6");
+
+
+  // var infos = graph.infos;
+  var link = svg.selectAll(".link")
+      .data(graph.links)
+      .enter().append("g")
+      .attr("class", "link")
+      .style("marker-end",  "url(#suit)") // Modified line ;
+
+    link.append("line")
+      .style("stroke-width", function(d) { return (d.bond * 2 - 1) * 5 + "px"; });
+
+  link.filter(function(d) { return d.bond > 1; }).append("line")
+      .attr("class", "separator");
+
+  var node = svg.selectAll(".node")
+      .data(graph.nodes)
+    .enter().append("g")
+      .attr("class", "node")
+      .call(force.drag);
+
+  node.append("circle")
+      .attr("r", function(d) { return radius(d.size); })
+      .style("fill", function(d) { return color(d.atom); })
+      .on("mouseover", function(d) {    
+            div.transition()    
+                .duration(200)    
+                .style("opacity", .9);    
+            div.html( d.info +"<br/>"+ "<img src='"+ d.link +"'>")  
+                .style("left", (d3.event.pageX) + "px")   
+                .style("top", (d3.event.pageY) + "px");  
+            })          
+        .on("mouseout", function(d) {   
+            div.transition()    
+                .duration(500)    
+                .style("opacity", 0); 
+        });
+
+  node.append("text")
+      .attr("dy", ".35em")
+      .attr("text-anchor", "middle")
+      .text(function(d) { return d.atom; });
+
+
+  function tick() {
+    link.selectAll("line")
+        .attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+
+    node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+  }
+});
+</script>
