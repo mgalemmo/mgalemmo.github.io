@@ -1,13 +1,13 @@
 
 {
   "nodes": [
-    {"atom": "Mongo Database", "size": 10, "info": " ", "link": "assets/mongo.jpg", "linkText": "link name"},
-    {"atom": "Server", "size": 10, "info": "Soon to be live at helgrindr.dyn.berkeley.edu", "link": "assets/server (1).jpg", "linkText": "link name"},
-    {"atom": "Barometer", "size": 10, "info": " ", "link": "assets/barometer (1).jpg", "linkText": "link name"},
-    {"atom": "Light Sensor", "size": 10,"info": " ", "link": "assets/light (1).jpg", "linkText": "link name"},
-    {"atom": "Github API", "size": 10, "info": " ", "link": "assets/network.jpg", "linkText": "link name"},
-    {"atom": "Adapter 1", "size": 10, "info": " ", "link": " ", "linkText": "link name"},
-    {"atom": "Adapter 2", "size": 10, "info": " ", "link": " ", "linkText": "link name"}
+    {"atom": "Mongo Database", "size": 14, "info": " ", "link": "assets/mongo.jpg", "linkText": "link name"},
+    {"atom": "Web Server", "size": 14, "info": " ", "link": "assets/server (1).jpg", "linkText": "link name"},
+    {"atom": "Barometer", "size": 8, "info": " ", "link": "assets/barometer (1).jpg", "linkText": "link name"},
+    {"atom": "Light Sensor", "size": 8,"info": " ", "link": "assets/light (1).jpg", "linkText": "link name"},
+    {"atom": "Github API", "size": 8, "info": " ", "link": "assets/network.jpg", "linkText": "link name"},
+    {"atom": "Adapter 1", "size": 12, "info": " ", "link": "assets/python.jpg", "linkText": "link name"},
+    {"atom": "Adapter 2", "size": 12, "info": " ", "link": "assets/python2.jpg", "linkText": "link name"}
   ],
   "links": [
     {"source": 4, "target": 5,  "bond": 1},

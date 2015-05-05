@@ -38,12 +38,27 @@ div.tooltip {
 
 }
 
+h1 {
+  text-align: center;
+  color: dimgrey;
+  font: 24px sans-serif; 
+
+}
+h2 {
+  text-align: center;
+  color: dimgrey;
+  font: 16px sans-serif; 
+
+}
+
+
 </style>
 <body>
+<h1> Data Flow Visualization for Glass Bead Labs </h1> <h2>  Michelle Galemmo // Mentor: Dav Clark</h2>
 <script>
 
-var width = 900,
-    height = 900;
+var width = 1280,
+    height = 800;
 
 var margin = {top: 30, right: 20, bottom: 30, left: 50}
 
@@ -68,7 +83,6 @@ var div = d3.select("body").append("div")
     .attr("class", "tooltip")       
     .style("opacity", 0);
 
-
 d3.json("graph.json", function(graph) {
  force
     .nodes(graph.nodes)
@@ -81,14 +95,14 @@ svg.append("defs").selectAll("marker")
   .enter().append("marker")
     .attr("id", function(d) { return d; })
     .attr("viewBox", "0 -5 10 10")
-    .attr("refX", 28)
+    .attr("refX", 30)
     .attr("refY", 0)
     .attr("markerWidth", 7)
     .attr("markerHeight", 7)
     .attr("orient", "auto")
   .append("path")
     .attr("d", "M0,-5L10,0L0,5 L10,0 L0, -5")
-    .style("stroke", "#4679BD")
+    .style("stroke", "dimgrey")
     .style("opacity", "1");
 
 
