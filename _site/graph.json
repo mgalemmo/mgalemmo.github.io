@@ -1,22 +1,20 @@
 
 {
   "nodes": [
-    {"atom": "Data Reduction and Event Generation", "size": 35, "info": "what I might want to say here", "link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEA7gQQUT0-8TyrSmXBsfW1o-lTqNB2Z375cnZqqtCgRApKzSr", "linkText": "link name"},
-    {"atom": "Data Store (ASbase)", "size": 32, "info": "what I might want to say here", "link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEA7gQQUT0-8TyrSmXBsfW1o-lTqNB2Z375cnZqqtCgRApKzSr", "linkText": "link name"},
-    {"atom": "Predictive Analytics", "size": 12, "info": "what I might want to say here", "link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEA7gQQUT0-8TyrSmXBsfW1o-lTqNB2Z375cnZqqtCgRApKzSr", "linkText": "link name"},
-    {"atom": "Decision Making", "size": 12,"info": "what I might want to say here", "link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEA7gQQUT0-8TyrSmXBsfW1o-lTqNB2Z375cnZqqtCgRApKzSr", "linkText": "link name"},
-    {"atom": "Dashboard", "size": 12, "info": "what I might want to say here", "link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEA7gQQUT0-8TyrSmXBsfW1o-lTqNB2Z375cnZqqtCgRApKzSr", "linkText": "link name"},
-    {"atom": "Adapter 1", "size": 12, "info": "what I might want to say here", "link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEA7gQQUT0-8TyrSmXBsfW1o-lTqNB2Z375cnZqqtCgRApKzSr", "linkText": "link name"},
-    {"atom": "Adapter 2", "size": 12, "info": "what I might want to say here", "link": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEA7gQQUT0-8TyrSmXBsfW1o-lTqNB2Z375cnZqqtCgRApKzSr", "linkText": "link name"}
+    {"atom": "Mongo Database", "size": 10, "info": " ", "link": "assets/mongo.jpg", "linkText": "link name"},
+    {"atom": "Server", "size": 10, "info": "Soon to be live at helgrindr.dyn.berkeley.edu", "link": "assets/server (1).jpg", "linkText": "link name"},
+    {"atom": "Barometer", "size": 10, "info": " ", "link": "assets/barometer (1).jpg", "linkText": "link name"},
+    {"atom": "Light Sensor", "size": 10,"info": " ", "link": "assets/light (1).jpg", "linkText": "link name"},
+    {"atom": "Github API", "size": 10, "info": " ", "link": "assets/network.jpg", "linkText": "link name"},
+    {"atom": "Adapter 1", "size": 10, "info": " ", "link": " ", "linkText": "link name"},
+    {"atom": "Adapter 2", "size": 10, "info": " ", "link": " ", "linkText": "link name"}
   ],
   "links": [
-    {"source": 0, "target": 5,  "bond": 1},
-    {"source": 0, "target": 6,  "bond": 1},
-    {"source": 1, "target": 0,  "bond": 1},
-    {"source": 1, "target": 2,  "bond": 1},
-    {"source": 1, "target": 4,  "bond": 1},
-    {"source": 4, "target": 2,  "bond": 1},
-    {"source": 2, "target": 3, "bond": 1},
-    {"source": 2, "target": 3, "bond": 1}
+    {"source": 4, "target": 5,  "bond": 1},
+    {"source": 3, "target": 6,  "bond": 1},
+    {"source": 2, "target": 6,  "bond": 1},
+    {"source": 5, "target": 0,  "bond": 1},
+    {"source": 6, "target": 0,  "bond": 1},
+    {"source": 0, "target": 1,  "bond": 1}
   ]
 }
